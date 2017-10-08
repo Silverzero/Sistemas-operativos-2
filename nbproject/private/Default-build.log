@@ -1,0 +1,7 @@
+mkdir -p obj
+cc -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse   -c -o obj/fuseLib.o src/fuseLib.c
+mkdir -p obj
+cc -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse   -c -o obj/MiSistemaDeFicheros.o src/MiSistemaDeFicheros.c
+mkdir -p obj
+cc -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse   -c -o obj/myFS.o src/myFS.c
+cc -pthread -lfuse -lrt -ldl   -o sf-fuse obj/fuseLib.o obj/MiSistemaDeFicheros.o obj/myFS.o
